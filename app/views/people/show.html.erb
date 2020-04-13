@@ -1,0 +1,200 @@
+<head>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+</head>
+<style>
+.emp-profile{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color: #0062cc;
+}
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+.proile-rating span{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #0062cc;
+}
+.profile-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.profile-work p{
+    font-size: 12px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.profile-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 600;
+}
+.profile-tab p{
+    font-weight: 600;
+    color: #0062cc;
+}
+</style>
+
+
+
+<p id="notice"><%= notice %></p>
+
+
+
+
+
+
+
+<div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                        <%= image_tag @person.image.url(:medium) %>
+
+                           
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h1>
+                                    <%= @person.name %>
+                                    </h1>
+                                    <h3>
+                                    <%= @person.jobtitle %> at <%= @person.company %>
+                                    </h3>
+                                    <h4> Average Rating: <span>8/10</span></h4>
+
+                                    <h4> Summary: </h4>
+                                    <p><%= @person.industry %></p>
+                                    
+                                   
+                               </div>
+                               
+                           </div>
+                        
+                    <div class="col-md-2">
+                    
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <p>INFORMATION</p>
+                            <%= @person.location %> <br>
+                            <%= @person.contact %><br>
+                            <%= @person.linkedin %> <br>
+                            <%= @person.other %>
+
+                            <br>
+                            <p>LOCATION</p>
+                            <div id="map-container-google-1" class="z-depth-1-half map-container" style="width: 100px">
+                            <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+                              style="border:0" allowfullscreen></iframe>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        
+                           
+                   
+                    <h4> Rankings: </h4>
+                    <div class="card">
+                    
+                    <div class="card-body">
+                      <blockquote class="blockquote mb-0">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                      </blockquote>
+                    </div>
+                  </div>
+                                        
+                            
+                        
+                                   
+                             
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+             
+            </form>  
+            
+            
+        </div>
+
+                                    
+      
+
+
+<%= link_to 'Edit', edit_person_path(@person) %> 
+|
+
+<%= link_to 'Back', "/" %>

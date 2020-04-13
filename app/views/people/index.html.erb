@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="row">
+<% @people.each do |person| %>
+  <div class="col-md-3">
+
+
+  <div class="card" style="width: 22.5rem;">
+  <%= image_tag person.image.url(:medium) %>
+  <div class="card-body">
+ <h4 class="card-title"> <center><%= person.name %> <i class="fas fa-check-circle" style="color:#19F9A2"></i></center></h4><h5><center><%= person.jobtitle %></center></h5>
+ <h5><center>@<%= person.company %></center></h5>
+    <hr>
+  <center>  <i class="fas fa-map-marker-alt"></i> <%= person.location %><br> <c/center>
+    
+    
+  
+   <br>
+  <center> <font color="red">  <div class="btn btn-success"> 
+  <%= link_to 'Show', person %> </div>  </font> </center>
+  </div>
+
+        <div>
+  
+
+     </div>
+  </div>
+</div>
+
+  <%end%>  
+</div>
+
+
+
+
+
+
+<h1>People</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+    <th>Profile Picture</th>
+      <th>Name</th>
+      <th>Job Title</th>
+      <th>Company</th>
+      <th>Micro-Bio</th>
+      <th>Location</th>
+      <th>Contact</th>
+      <th>Linkedin</th>
+      <th>Other</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= image_tag person.image.url(:thumb) %></td>
+
+        <td><%= person.name %></td>
+        <td><%= person.jobtitle %></td>
+        <td><%= person.company %></td>
+        <td><%= person.industry %></td>
+        <td><%= person.location %></td>
+        <td><%= person.contact %></td>
+        <td style ="word-break:break-all;"><%= link_to person.linkedin %></td>
+        <td style ="word-break:break-all;"><%= link_to person.other %></td>
+       
+        <td><%= link_to 'Show', person %></td>
+        <td><%= link_to 'Edit', edit_person_path(person) %></td>
+        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<br>
+<%= link_to 'New Person', new_person_path %>
+
+
